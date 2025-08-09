@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and Loss - Aptitude Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+             /* Pagination specific styles */
+    .page {
+       display: none;
+   }
+   
+   .page.active {
+       display: block;
+   }
+   
+   /* Active page link styling */
+   .pagination .page-item.active .page-link {
+       background-color: #28a745;
+       border-color: #28a745;
+   }
+   
+   /* Question tracking */
+   .quiz {
+       position: relative;
+       transition: background-color 0.3s ease;
+   }
+   
+   .quiz.answered {
+       border-left: 4px solid #28a745;
+   }
+   
+   /* Progress indicator */
+   .progress-container {
+       margin-bottom: 20px;
+   }
+   
+   .progress {
+       height: 10px;
+       border-radius: 5px;
+       overflow: hidden;
+   }
+   
+   .progress-bar {
+       background-color: #28a745;
+       transition: width 0.5s ease;
+   }
+    
+    </style>
+</head>
+<body>
+    <!-- Toggle Button -->
+    <button id="sidebarToggle"><i class="fas fa-bars"></i></button>
+    
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gowthamraj Network</a>
+        </div>
+    </nav>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <ul class="list-unstyled">
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-calculator"></i> Arithmetic Aptitude</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i> Data Interpretation</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Verbal Ability</a></li>
+            <li><a href="#"><i class="fas fa-brain"></i> Logical Reasoning</a></li>
+            <li><a href="#"><i class="fas fa-code"></i> Programming</a></li>
+            <li><a href="#"><i class="fas fa-newspaper"></i> Current Affairs</a></li>
+            <li><a href="#"><i class="fas fa-user-tie"></i> HR Interview</a></li>
+        </ul>
+    </nav> 
+    
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Formula Box -->
+        <div class="formula-box">
+            <h3><i class="fas fa-calculator"></i> Profit and Loss - Key Formulas</h3>
+            <div class="formula-grid">
+                <div class="formula-item">
+                    <h4>Basic Profit and Loss Formulas</h4>
+                    <p>To calculate profit or loss:</p>
+                    <div class="formula">Profit = Selling Price - Cost Price</div>
+                    <div class="formula">Loss = Cost Price - Selling Price</div>
+                    <p>Where:</p>
+                    <p>S.P. = Selling Price</p>
+                    <p>C.P. = Cost Price</p>
+                </div>
+                <div class="formula-item">
+                    <h4>Profit and Loss Percentage</h4>
+                    <p>To calculate profit or loss percentage:</p>
+                    <div class="formula">Profit% = (Profit / Cost Price) × 100</div>
+                    <div class="formula">Loss% = (Loss / Cost Price) × 100</div>
+                </div>
+                <div class="formula-item">
+                    <h4>Finding Cost Price</h4>
+                    <p>To find the cost price:</p>
+                    <div class="formula">C.P. = [100 × S.P.] / (100 + Profit%)</div>
+                    <div class="formula">C.P. = [100 × S.P.] / (100 - Loss%)</div>
+                </div>
+                <div class="formula-item">
+                    <h4>Finding Selling Price</h4>
+                    <p>To find the selling price:</p>
+                    <div class="formula">S.P. = [C.P. × (100 + Profit%)] / 100</div>
+                    <div class="formula">S.P. = [C.P. × (100 - Loss%)] / 100</div>
+                </div>
+                <div class="formula-item">
+                    <h4>False Weights Formula</h4>
+                    <p>When using false weights:</p>
+                    <div class="formula">Gain% = [Error / (True weight - Error)] × 100</div>
+                    <p>Where:</p>
+                    <p>Error = True weight - False weight</p>
+                </div>
+                <div class="formula-item">
+                    <h4>Successive Discounts</h4>
+                    <p>For successive discounts a%, b%, c%:</p>
+                    <div class="formula">Net Discount% = 100 - [(100-a)(100-b)(100-c)/10000]</div>
+                    <p>Example: For 20% and 10% successive discounts:</p>
+                    <p>Net Discount = 100 - [(80×90)/100] = 28%</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-success">Profit and Loss Problems</h2>
+        <p>Practice aptitude questions on profit and loss calculations</p>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-end mt-1">
+                <small class="text-muted">Questions answered: <span id="answered-count">0</span>/260</small>
+            </div>
+        </div>
+        
+        <!-- Page 1 (Questions 1-10) -->
+        <div class="page" id="page1" data-page="1">
+                
+        </div>
+
+        <!-- Page 2 (Questions 11-16) -->
+        <div class="page" id="page2" data-page="2">
+        
+          
+        </div>
+
+
+
+         <!-- Page 3 (Questions 16-20) -->
+        <div class="page" id="page3" data-page="2">
+        
+          
+        </div>
+
+
+         <!-- Page 4 -->
+        <div class="page" id="page4" data-page="2">
+        
+          
+        </div>
+
+         <!-- Page 5  -->
+        <div class="page" id="page5" data-page="2">
+        
+          
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li id="nav" ><a id="link" href="page3.html?page=5">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#" data-page="1">16</a></li>
+                <li class="page-item"><a class="page-link" href="#" data-page="2">17</a></li>
+                <li class="page-item"><a class="page-link" href="#" data-page="3">18</a></li>
+                <li class="page-item"><a class="page-link" href="#" data-page="4">19</a></li>
+                <li class="page-item"><a class="page-link" href="#" data-page="5">20</a></li>
+                <li id="nav"><a id="link" href="page5.html">next</a></li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#" data-page="next" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 <span>Gowthamraj Network</span>. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Global variables to track quiz progress
+        let answeredQuestions = {};
+        const totalQuestions = 260
+        ;
+        
+        // Toggle sidebar
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking overlay
+        document.querySelector('.overlay').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.remove('active');
+            this.classList.remove('active');
+        });
+        
+        // Function to check answers
+        function checkAnswer(element, isCorrect, questionNumber) {
+            // Reset all options
+            const options = element.parentElement.querySelectorAll('li');
+            options.forEach(option => {
+                option.classList.remove('correct');
+                option.classList.remove('incorrect');
+            });
+            
+            // Highlight selected option
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+            }
+            
+            // Show explanation
+            const explanation = element.parentElement.nextElementSibling;
+            explanation.style.display = 'block';
+            
+            // Mark question as answered
+            const quizContainer = element.closest('.quiz');
+            quizContainer.classList.add('answered');
+            
+            // Track answered question
+            if (questionNumber) {
+                answeredQuestions[questionNumber] = true;
+                
+                // Save progress to localStorage
+                saveProgress();
+            }
+            
+            // Update progress
+            updateProgress();
+            
+            // Check if all questions on current page are answered
+            checkPageCompletion();
+        }
+        
+        // Function to update progress bar and counter
+        function updateProgress() {
+            const answeredCount = Object.keys(answeredQuestions).length;
+            const progressPercent = (answeredCount / totalQuestions) * 100;
+            
+            // Update progress bar
+            document.querySelector('.progress-bar').style.width = progressPercent + '%';
+            document.querySelector('.progress-bar').setAttribute('aria-valuenow', progressPercent);
+            
+            // Update counter
+            document.getElementById('answered-count').textContent = answeredCount;
+        }
+        
+        // Function to check if all questions on current page are answered
+        function checkPageCompletion() {
+            const currentPage = document.querySelector('.page.active');
+            const pageNumber = parseInt(currentPage.getAttribute('data-page'));
+            const questionsOnPage = currentPage.querySelectorAll('.quiz');
+            
+            // Count answered questions on this page
+            let answeredOnPage = 0;
+            questionsOnPage.forEach(quiz => {
+                if (quiz.classList.contains('answered')) {
+                    answeredOnPage++;
+                }
+            });
+            
+            // If all questions on page are answered, move to next page after a short delay
+            if (answeredOnPage === questionsOnPage.length && pageNumber < 2) {
+                setTimeout(() => {
+                    showPage(pageNumber + 1);
+
+                    // Update active class in pagination
+                    document.querySelectorAll('.pagination .page-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    document.querySelector(`.pagination .page-item:nth-child(${pageNumber + 1})`).classList.add('active');
+
+                    // Scroll to top of content
+                    document.querySelector('.content').scrollTop = 0;
+                    window.scrollTo(0, 0);
+                }, 1500); // 1.5 second delay before moving to next page
+            }
+        }
+        
+        // Pagination functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show first page by default
+            // Get ?page= from URL if available
+const params = new URLSearchParams(window.location.search);
+const startPage = parseInt(params.get('page')) || 1; // default to page 6 if none
+showPage(startPage);
+
+// Highlight the correct pagination button
+document.querySelectorAll('.pagination .page-item').forEach(item => {
+    item.classList.remove('active');
+});
+document.querySelector(`.pagination .page-link[data-page="${startPage}"]`)?.parentElement.classList.add('active');
+
+            
+            // Add click event to pagination links
+            const paginationLinks = document.querySelectorAll('.pagination .page-link');
+            paginationLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get page number
+                    const pageNum = this.getAttribute('data-page');
+                    
+                    if (pageNum === 'next') {
+                        // Get current active page
+                        const activePage = document.querySelector('.pagination .active');
+                        const nextPage = activePage.nextElementSibling;
+                        
+                        if (nextPage && nextPage.querySelector('.page-link').getAttribute('data-page') !== 'next') {
+                            const nextPageNum = nextPage.querySelector('.page-link').getAttribute('data-page');
+                            showPage(nextPageNum);
+                            
+                            // Update active class
+                            activePage.classList.remove('active');
+                            nextPage.classList.add('active');
+                        } else {
+                            // If on last page, go to first page
+                            showPage(1);
+                            
+                            // Update active class
+                            activePage.classList.remove('active');
+                            document.querySelector('.pagination li:first-child').classList.add('active');
+                        }
+                    } else {
+                        showPage(pageNum);
+                        
+                        // Update active class
+                        document.querySelectorAll('.pagination .page-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        this.parentElement.classList.add('active');
+                    }
+                    
+                    // Scroll to top of content
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Initialize progress
+            updateProgress();
+            
+            // Check for previously answered questions (if stored in localStorage)
+            restoreProgress();
+        });
+        
+        // Function to show specific page
+        function showPage(pageNum) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+        
+        // Function to restore progress from localStorage (if available)
+        function restoreProgress() {
+            const savedAnswers = localStorage.getItem('profitLossQuizAnswers');
+            if (savedAnswers) {
+                answeredQuestions = JSON.parse(savedAnswers);
+                
+                // Mark questions as answered in the UI
+                Object.keys(answeredQuestions).forEach(questionNum => {
+                    const quizElement = document.querySelector(`.quiz[data-question="${questionNum}"]`);
+                    if (quizElement) {
+                        quizElement.classList.add('answered');
+                    }
+                });
+                
+                // Update progress
+                updateProgress();
+            }
+        }
+        
+        // Save progress to localStorage when answering questions
+        function saveProgress() {
+            localStorage.setItem('profitLossQuizAnswers', JSON.stringify(answeredQuestions));
+        }
+    </script>
+    <script src="aptitudeQuestion101to150.js">
+
+    </script>
+</body>
+</html>
